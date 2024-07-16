@@ -86,27 +86,62 @@
         })
     });
 
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1000,
-        center: true,
-        margin: 24,
-        dots: true,
-        loop: true,
-        nav : false,
-        responsive: {
-            0:{
-                items:1
-            },
-            768:{
-                items:2
-            },
-            992:{
-                items:3
+    // Testimonials carousel initialization
+    function initOwlCarousel() {
+        $(".testimonial-carousel").owlCarousel({
+            autoplay: true,
+            smartSpeed: 1000,
+            center: true,
+            margin: 24,
+            dots: true,
+            loop: true,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                992: {
+                    items: 3
+                }
             }
+        });
+    }
+
+    // Fetch testimonials from API and update HTML
+    $.ajax({
+        url: 'https://restframeworks.pythonanywhere.com/api/testimonials/',
+        method: 'GET',
+        success: function(response) {
+            if (response && response.length > 0) {
+                var testimonials = '';
+                response.forEach(function(item) {
+                    testimonials += `
+                        <div class="testimonial-item bg-transparent border rounded p-4">
+                            <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                            <p>${item.Description}</p>
+                            <div class="d-flex align-items-center">
+                                <img class="img-fluid flex-shrink-0 rounded-circle" src="${item.photo}" style="width: 50px; height: 50px;">
+                                <div class="ps-3">
+                                    <h5 class="mb-1">${item.name}</h5>
+                                    <small>${item.proffession}</small>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                $('#testimonialCarousel').html(testimonials);
+                initOwlCarousel(); // Initialize Owl Carousel after content is added
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching testimonials:', error);
         }
     });
+
+    
     // Fetch food menu items from API and update HTML
     $.ajax({
         url: 'https://restframeworks.pythonanywhere.com/api/food-menus/type/Veg/',
