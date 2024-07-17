@@ -204,21 +204,32 @@
     });
 
 
-    $.ajax({
-        url: 'https://restframeworks.pythonanywhere.com/api/about/3/',
-        method: 'GET',
-        success: function(response) {
-            if (response && response.images && response.images.length >= 4) {
-                $('#image1').attr('src', response.images[0].image);
-                $('#image2').attr('src', response.images[1].image);
-                $('#image3').attr('src', response.images[2].image);
-                $('#image4').attr('src', response.images[3].image);
+    function fetchImage(url, imageId) {
+        $.ajax({
+            url: url,
+            method: 'GET',
+            success: function(response) {
+                console.log('Response from', url, response); // Log the complete response
+                // Adjust based on actual response structure
+                if (response && response.image) {
+                    $('#' + imageId).attr('src', response.image);
+                } else {
+                    console.error('Invalid response structure:', response);
+                }
+            },
+            error: function(error) {
+                console.error('Error fetching images from ' + url, error);
             }
-        },
-        error: function(error) {
-            console.error('Error fetching images:', error);
-        }
-    });
+        });
+    }
+    
+    fetchImage('https://restframeworks.pythonanywhere.com/api/about/25/', 'image1');
+    fetchImage('https://restframeworks.pythonanywhere.com/api/about/26/', 'image2');
+    fetchImage('https://restframeworks.pythonanywhere.com/api/about/27/', 'image3');
+    fetchImage('https://restframeworks.pythonanywhere.com/api/about/28/', 'image4');
+    
+    
+    
     
     // Fetch image from API and update src
     $.ajax({
