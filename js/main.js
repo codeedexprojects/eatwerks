@@ -183,7 +183,7 @@
                     menuItemss += `
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid rounded" src="${baseURL + item.image}" alt="${item.name}" style="width: 80px; height:80px;">
+                                <img class="flex-shrink-0 img-fluid rounded menu-image" src="${baseURL + item.image}" alt="${item.name}" style="width: 80px; height:80px;">
                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                                         <span>${item.name}</span>
