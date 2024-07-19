@@ -123,7 +123,6 @@
                             <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
                             <p>${item.Description}</p>
                             <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded-circle" src="${item.photo}" style="width: 50px; height: 50px;">
                                 <div class="ps-3">
                                     <h5 class="mb-1">${item.name}</h5>
                                     <small>${item.proffession}</small>
@@ -154,7 +153,7 @@
                     menuItems += `
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center">
-                                <img class="flex-shrink-0 img-fluid rounded" src="${baseURL + item.image}" alt="${item.name}" style="width: 80px; height:80px;">
+                                <img class="flex-shrink-0 img-fluid rounded menu-image" src="${baseURL + item.image}" alt="${item.name}">
                                 <div class="w-100 d-flex flex-column text-start ps-4">
                                     <h5 class="d-flex justify-content-between border-bottom pb-2">
                                         <span>${item.name}</span>
@@ -246,3 +245,4 @@
     });
 
 })(jQuery);
+

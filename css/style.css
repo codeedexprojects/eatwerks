@@ -224,7 +224,29 @@
 .service-item:hover * {
     color: var(--light) !important;
 }
+.menu-image {
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
+.menu-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+.testimonial-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.testimonial-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
 /*** Food Menu ***/
 .nav-pills .nav-item .active {
@@ -481,7 +503,7 @@
 .whatsapp-button {
     position: fixed;
     bottom: 30px;
-    left: 40px;
+    right: 40px; /* Changed from left to right */
     background-color: #25d366;
     color: white;
     width: 60px;
@@ -496,9 +518,9 @@
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-
 .whatsapp-button:hover {
     background-color: #1ebe54;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
+
 
